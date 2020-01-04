@@ -1,0 +1,43 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "pytorch_intermediate_layers"
+author = "Jan Freyberg"
+author-email = "jan.freyberg@gmail.com"
+home-page = "https://github.com/janfreyberg/pytorch-intermediate-layers"
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+requires = [
+    "torch",
+    "typing_extensions"
+]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "pytest",
+    "coverage",
+    "pytest-cov"
+]
+dev = [
+    "black",
+    "flake8",
+    "pre-commit"
+]
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
